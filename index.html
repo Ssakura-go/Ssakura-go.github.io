@@ -43,12 +43,11 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
-        header img {
-            max-width: 100%;
+        .logo {
+            max-width: 80%;
             height: auto;
-            display: block;
             margin: 0 auto;
-            max-height: 100px; /* 控制最大高度 */
+            display: block;
         }
         
         h1 {
@@ -102,9 +101,9 @@
             max-width: 45%;
             box-sizing: border-box;
             font-size: 1.1rem;
-            color: white !important; /* 字体颜色改为白色 */
-            text-align: center; /* 确保文字居中 */
-            background-color: rgba(41, 48, 102, 0.8); /* 添加深色背景 */
+            color: white !important;
+            text-align: center;
+            background-color: rgba(41, 48, 102, 0.8);
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -123,7 +122,7 @@
         }
         
         .wide-button:hover {
-            background-color: rgba(41, 48, 102, 1); /* 悬停时加深背景 */
+            background-color: rgba(41, 48, 102, 1);
         }
         
         .main-button::after, .wide-button::after {
@@ -184,8 +183,8 @@
                 max-width: 48%;
             }
             
-            header img {
-                max-height: 80px; /* 移动端适当减小高度 */
+            .logo {
+                max-width: 90%;
             }
         }
         
@@ -208,8 +207,8 @@
                 max-width: 100%;
             }
             
-            header img {
-                max-height: 60px; /* 小屏幕进一步减小高度 */
+            .logo {
+                max-width: 100%;
             }
         }
     </style>
@@ -217,7 +216,7 @@
 <body>
     <div class="container">
         <header>
-            <img src="https://tc.z.wiki/autoupload/f/ukWVVN0pmL3qghysSgF2wN5jU0dUO6lsIk56nM6bbkayl5f0KlZfm6UsKj-HyTuv/20250711/YZdc/907X307/LogoTitle.png" alt="LOGO">
+            <img src="https://tc.z.wiki/autoupload/f/ukWVVN0pmL3qghysSgF2wN5jU0dUO6lsIk56nM6bbkayl5f0KlZfm6UsKj-HyTuv/20250711/YZdc/907X307/LogoTitle.png" alt="LOGO" class="logo">
         </header>
         
         <div class="main-buttons">
