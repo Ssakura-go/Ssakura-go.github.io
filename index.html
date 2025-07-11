@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2025年东莞市工业机器人系统操作职业技能竞赛</title>
+    <!-- 引入Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -75,7 +77,10 @@
             padding: 30px 15px;
             text-align: center;
             text-decoration: none;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             font-size: 1.5rem;
             font-weight: bold;
             color: #293066;
@@ -85,6 +90,12 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+        }
+
+        .main-button i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #1e5799;
         }
 
         .bottom-buttons {
@@ -180,6 +191,11 @@
                 font-size: 1.2rem;
             }
 
+            .main-button i {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+
             .wide-button {
                 padding: 15px 10px;
                 font-size: 1rem;
@@ -208,6 +224,11 @@
                 font-size: 1rem;
             }
 
+            .main-button i {
+                font-size: 1.2rem;
+                margin-bottom: 5px;
+            }
+
             .wide-button {
                 padding: 12px 5px;
                 font-size: 0.9rem;
@@ -224,17 +245,41 @@
         </header>
 
         <div class="main-buttons">
-            <a href="#intro" class="main-button">赛事简介</a>
-            <a href="#documents" class="main-button">技术文件</a>
-            <a href="#rewards" class="main-button">赛事奖励</a>
-            <a href="#register" class="main-button">报名平台</a>
-            <a href="#schedule" class="main-button">赛程安排</a>
-            <a href="#questions" class="main-button">理论题库</a>
+            <a href="#intro" class="main-button">
+                <i class="fas fa-info-circle"></i>
+                赛事简介
+            </a>
+            <a href="#documents" class="main-button">
+                <i class="fas fa-file-alt"></i>
+                技术文件
+            </a>
+            <a href="#rewards" class="main-button">
+                <i class="fas fa-trophy"></i>
+                赛事奖励
+            </a>
+            <a href="#register" class="main-button">
+                <i class="fas fa-user-plus"></i>
+                报名平台
+            </a>
+            <a href="#schedule" class="main-button">
+                <i class="fas fa-calendar-alt"></i>
+                赛程安排
+            </a>
+            <a href="#questions" class="main-button">
+                <i class="fas fa-book"></i>
+                理论题库
+            </a>
         </div>
 
         <div class="bottom-buttons">
-            <a href="#location" class="wide-button">导航位置</a>
-            <a href="#contact" class="wide-button">联系方式</a>
+            <a href="#location" class="wide-button">
+                <i class="fas fa-map-marker-alt"></i>
+                导航位置
+            </a>
+            <a href="#contact" class="wide-button">
+                <i class="fas fa-envelope"></i>
+                联系方式
+            </a>
         </div>
 
         <footer>
