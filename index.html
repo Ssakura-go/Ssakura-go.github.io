@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
             box-sizing: border-box;
             font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
         }
-        
+
         body {
             background-color: #f5f5f5;
             color: #333;
@@ -23,7 +24,7 @@
             background-blend-mode: overlay;
             background-color: rgba(255, 255, 255, 0);
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -32,7 +33,7 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         header {
             text-align: center;
             padding: 40px 0;
@@ -42,32 +43,32 @@
             margin-bottom: 30px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         .logo {
-            max-width: 80%;
+            max-width: 100%;
             height: auto;
             margin: 0 auto;
             display: block;
         }
-        
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
-        
+
         .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
         }
-        
+
         .main-buttons {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
             margin-bottom: 50px;
         }
-        
+
         .main-button {
             background-color: white;
             border: none;
@@ -85,7 +86,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .bottom-buttons {
             display: flex;
             justify-content: space-between;
@@ -94,11 +95,10 @@
             padding-bottom: 30px;
             margin-top: auto;
         }
-        
+
         .wide-button {
             padding: 20px 15px;
-            width: 45%;
-            max-width: 45%;
+            width: 48%;
             box-sizing: border-box;
             font-size: 1.1rem;
             color: white !important;
@@ -111,21 +111,23 @@
             position: relative;
             overflow: hidden;
         }
-        
-        .main-button:hover, .wide-button:hover {
+
+        .main-button:hover,
+        .wide-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .main-button:hover {
             color: #1e5799;
         }
-        
+
         .wide-button:hover {
             background-color: rgba(41, 48, 102, 1);
         }
-        
-        .main-button::after, .wide-button::after {
+
+        .main-button::after,
+        .wide-button::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -136,19 +138,19 @@
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
-        
+
         .main-button:hover::after {
             transform: scaleX(1);
         }
-        
+
         .wide-button::after {
-            background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.3));
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
         }
-        
+
         .wide-button:hover::after {
             transform: scaleX(1);
         }
-        
+
         footer {
             text-align: center;
             padding: 20px;
@@ -157,68 +159,70 @@
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 8px;
         }
-        
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
             }
-            
+
             .subtitle {
                 font-size: 1rem;
             }
-            
+
             .main-buttons {
-                grid-template-columns: 1fr;
-                gap: 20px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
                 margin-bottom: 40px;
             }
-            
+
             .main-button {
-                padding: 25px 15px;
-                font-size: 1.3rem;
+                padding: 20px 10px;
+                font-size: 1.2rem;
             }
-            
+
             .wide-button {
-                width: 48%;
-                max-width: 48%;
+                padding: 15px 10px;
+                font-size: 1rem;
             }
-            
+
             .logo {
-                max-width: 90%;
+                max-width: 100%;
             }
         }
-        
+
         @media (max-width: 480px) {
             header {
-                padding: 30px 15px;
+                padding: 20px 10px;
             }
-            
+
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
-            
-            .bottom-buttons {
-                flex-direction: column;
-                gap: 15px;
+
+            .main-buttons {
+                gap: 10px;
             }
-            
+
+            .main-button {
+                padding: 15px 5px;
+                font-size: 1rem;
+            }
+
             .wide-button {
-                width: 100%;
-                max-width: 100%;
-            }
-            
-            .logo {
-                max-width: 100%;
+                padding: 12px 5px;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
-            <img src="https://tc.z.wiki/autoupload/f/ukWVVN0pmL3qghysSgF2wN5jU0dUO6lsIk56nM6bbkayl5f0KlZfm6UsKj-HyTuv/20250711/YZdc/907X307/LogoTitle.png" alt="LOGO" class="logo">
+            <img src="https://tc.z.wiki/autoupload/f/ukWVVN0pmL3qghysSgF2wN5jU0dUO6lsIk56nM6bbkayl5f0KlZfm6UsKj-HyTuv/20250711/YZdc/907X307/LogoTitle.png"
+                alt="LOGO" class="logo">
         </header>
-        
+
         <div class="main-buttons">
             <a href="#intro" class="main-button">赛事简介</a>
             <a href="#documents" class="main-button">技术文件</a>
@@ -227,20 +231,20 @@
             <a href="#schedule" class="main-button">赛程安排</a>
             <a href="#questions" class="main-button">理论题库</a>
         </div>
-        
+
         <div class="bottom-buttons">
             <a href="#location" class="wide-button">导航位置</a>
             <a href="#contact" class="wide-button">联系方式</a>
         </div>
-        
+
         <footer>
             <p>© 2025 GREZEN·广正杯 职业技能竞赛组委会</p>
         </footer>
     </div>
-    
+
     <script>
         document.querySelectorAll('.main-button, .wide-button').forEach(button => {
-            button.addEventListener('click', function(e) {
+            button.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 console.log(`跳转到: ${targetId}`);
@@ -249,4 +253,5 @@
         });
     </script>
 </body>
+
 </html>
