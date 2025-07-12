@@ -69,19 +69,22 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
             margin-bottom: 50px;
+            width: 70%; /* 新增：将主按钮容器宽度设为70% */
+            margin-left: auto; /* 新增：居中 */
+            margin-right: auto; /* 新增：居中 */
         }
 
         .main-button {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.85);
             border: none;
-            padding: 30px 15px;
+            padding: 25px 15px;
             text-align: center;
             text-decoration: none;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: bold;
             color: #293066;
             border-radius: 8px;
@@ -90,11 +93,13 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+            min-height: 100px;
+            width: 100%; /* 确保按钮填满容器 */
         }
 
         .main-button i {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-right: 20px;
             color: #1e5799;
         }
 
@@ -111,7 +116,7 @@
             padding: 20px 15px;
             width: 48%;
             box-sizing: border-box;
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             color: white !important;
             text-align: center;
             background-color: rgba(41, 48, 102, 0.8);
@@ -121,6 +126,16 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+        }
+
+        .wide-button i {
+            font-size: 2rem;
+            margin-right: 20px;
         }
 
         .main-button:hover,
@@ -144,7 +159,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 3px;
+            height: 4px;
             background: linear-gradient(90deg, #1e579900, #207bca00);
             transform: scaleX(0);
             transition: transform 0.3s ease;
@@ -184,25 +199,29 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
                 margin-bottom: 40px;
+                width: 70%; /* 保持响应式设计的一致性 */
             }
 
             .main-button {
                 padding: 20px 10px;
                 font-size: 1.2rem;
+                min-height: 80px;
             }
 
             .main-button i {
-                font-size: 1.5rem;
-                margin-bottom: 8px;
+                font-size: 1.8rem;
+                margin-right: 10px;
             }
 
             .wide-button {
                 padding: 15px 10px;
-                font-size: 1rem;
+                font-size: 1.2rem;
+                min-height: 70px;
             }
 
-            .logo {
-                max-width: 100%;
+            .wide-button i {
+                font-size: 1.5rem;
+                margin-right: 10px;
             }
         }
 
@@ -217,21 +236,33 @@
 
             .main-buttons {
                 gap: 10px;
+                width: 85%; /* 在小屏幕上稍微放宽一点 */
             }
 
             .main-button {
-                padding: 15px 5px;
+                padding: 15px 8px;
                 font-size: 1rem;
+                flex-direction: column;
+                min-height: 90px;
             }
 
             .main-button i {
-                font-size: 1.2rem;
-                margin-bottom: 5px;
+                font-size: 1.5rem;
+                margin-right: 0;
+                margin-bottom: 8px;
             }
 
             .wide-button {
                 padding: 12px 5px;
-                font-size: 0.9rem;
+                font-size: 1rem;
+                flex-direction: column;
+                min-height: 80px;
+            }
+
+            .wide-button i {
+                font-size: 1.2rem;
+                margin-right: 0;
+                margin-bottom: 8px;
             }
         }
     </style>
@@ -266,7 +297,7 @@
                 <i class="fas fa-calendar-alt"></i>
                 赛程安排
             </a>
-            <a href="#questions" class="main-button">
+            <a href="https://www.kaoshibao.com/mobile/bank-details/?from_uid=21041357&id=24419356" class="main-button">
                 <i class="fas fa-book"></i>
                 理论题库
             </a>
@@ -293,7 +324,8 @@
             // 排除特殊处理的按钮
             if (!button.href.includes('RealBonus.png') &&
                 !button.href.includes('clewm.net') &&
-                !button.href.includes('wps.cn')) {
+                !button.href.includes('wps.cn')&&
+                !button.href.includes('kaoshibao.com')) {
                 button.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
