@@ -195,6 +195,108 @@
             max-width: 1200px;
         }
 
+        /* 弹出层样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: modalopen 0.3s;
+        }
+
+        @keyframes modalopen {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .contact-item {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-name {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .contact-phone {
+            font-size: 1.1rem;
+            color: #1e5799;
+            cursor: pointer;
+            position: relative;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .contact-phone:hover {
+            background-color: #e1e1e1;
+        }
+
+        .contact-phone::after {
+            content: '点击复制';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .contact-phone:hover::after {
+            opacity: 1;
+        }
+
+        .contact-note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -247,6 +349,21 @@
                 /* 字体大小减小到原来的80% */
                 padding: 13px;
                 /* 高度减小到原来的80% */
+            }
+
+            .modal-content {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .contact-item {
+                padding: 10px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-phone {
+                margin-top: 10px;
             }
         }
 
@@ -358,7 +475,7 @@
                 <i class="fas fa-map-marker-alt"></i>
                 导航位置
             </a>
-            <a href="#contact" class="wide-button">
+            <a href="#contact" class="wide-button" id="contactButton">
                 <i class="fas fa-envelope"></i>
                 联系方式
             </a>
@@ -369,13 +486,36 @@
         </footer>
     </div>
 
+    <!-- 联系方式弹窗 -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 20px;">联系方式</h2>
+            <div class="contact-item">
+                <div>
+                    <div class="contact-name">陈先生</div>
+                    <div class="contact-note">微信同号</div>
+                </div>
+                <div class="contact-phone" onclick="copyToClipboard('13802457288')">13802457288</div>
+            </div>
+            <div class="contact-item">
+                <div>
+                    <div class="contact-name">巫先生</div>
+                    <div class="contact-note">微信同号</div>
+                </div>
+                <div class="contact-phone" onclick="copyToClipboard('18620355063')">18620355063</div>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.querySelectorAll('.main-button, .wide-button').forEach(button => {
             // 排除特殊处理的按钮
-            if (!button.href.includes('RealBonus.png') &&
+            if (!button.href.includes('Bonus.png') &&
                 !button.href.includes('clewm.net') &&
                 !button.href.includes('wps.cn') &&
-                !button.href.includes('kaoshibao.com')) {
+                !button.href.includes('kaoshibao.com') &&
+                button.id !== 'contactButton') {
                 button.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
@@ -384,6 +524,41 @@
                 });
             }
         });
+
+        // 联系方式弹窗功能
+        const modal = document.getElementById("contactModal");
+        const btn = document.getElementById("contactButton");
+        const span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // 复制电话号码功能
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function () {
+                alert("已复制电话号码: " + text);
+            }, function () {
+                // 兼容旧浏览器
+                const textarea = document.createElement("textarea");
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textarea);
+                alert("已复制电话号码: " + text);
+            });
+        }
     </script>
 </body>
 
