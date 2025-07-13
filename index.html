@@ -69,9 +69,9 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
             margin-bottom: 50px;
-            width: 70%; /* 新增：将主按钮容器宽度设为70% */
-            margin-left: auto; /* 新增：居中 */
-            margin-right: auto; /* 新增：居中 */
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .main-button {
@@ -94,7 +94,7 @@
             position: relative;
             overflow: hidden;
             min-height: 100px;
-            width: 100%; /* 确保按钮填满容器 */
+            width: 100%;
         }
 
         .main-button i {
@@ -104,17 +104,19 @@
         }
 
         .bottom-buttons {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            width: 70%;
+            margin: 0 auto;
             padding-bottom: 30px;
             margin-top: auto;
         }
 
         .wide-button {
-            padding: 20px 15px;
-            width: 48%;
+            padding: 16px 12px;
+            /* 高度减小到原来的80% */
+            width: 100%;
             box-sizing: border-box;
             font-size: 1.5rem;
             color: white !important;
@@ -130,11 +132,13 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            min-height: 80px;
+            min-height: 64px;
+            /* 高度减小到原来的80% */
         }
 
         .wide-button i {
-            font-size: 2rem;
+            font-size: 1.6rem;
+            /* 图标大小减小到原来的80% */
             margin-right: 20px;
         }
 
@@ -179,11 +183,16 @@
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 16px;
+            /* 高度减小到原来的80% */
             color: #666;
-            font-size: 0.9rem;
+            font-size: 0.72rem;
+            /* 字体大小减小到原来的80% */
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 8px;
+            width: 70%;
+            margin: 0 auto;
+            max-width: 1200px;
         }
 
         @media (max-width: 768px) {
@@ -199,7 +208,7 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
                 margin-bottom: 40px;
-                width: 70%; /* 保持响应式设计的一致性 */
+                width: 70%;
             }
 
             .main-button {
@@ -214,14 +223,30 @@
             }
 
             .wide-button {
-                padding: 15px 10px;
+                padding: 12px 8px;
+                /* 高度减小到原来的80% */
                 font-size: 1.2rem;
-                min-height: 70px;
+                min-height: 56px;
+                /* 高度减小到原来的80% */
             }
 
             .wide-button i {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
+                /* 图标大小减小到原来的80% */
                 margin-right: 10px;
+            }
+
+            .bottom-buttons {
+                width: 70%;
+                gap: 15px;
+            }
+
+            footer {
+                width: 70%;
+                font-size: 0.58rem;
+                /* 字体大小减小到原来的80% */
+                padding: 13px;
+                /* 高度减小到原来的80% */
             }
         }
 
@@ -236,7 +261,7 @@
 
             .main-buttons {
                 gap: 10px;
-                width: 85%; /* 在小屏幕上稍微放宽一点 */
+                width: 85%;
             }
 
             .main-button {
@@ -253,16 +278,33 @@
             }
 
             .wide-button {
-                padding: 12px 5px;
-                font-size: 1rem;
+                padding: 10px 4px;
+                /* 高度减小到原来的80% */
+                font-size: 0.8rem;
+                /* 字体大小减小到原来的80% */
                 flex-direction: column;
-                min-height: 80px;
+                min-height: 64px;
+                /* 高度减小到原来的80% */
             }
 
             .wide-button i {
-                font-size: 1.2rem;
+                font-size: 0.96rem;
+                /* 图标大小减小到原来的80% */
                 margin-right: 0;
-                margin-bottom: 8px;
+                margin-bottom: 6px;
+            }
+
+            .bottom-buttons {
+                width: 85%;
+                gap: 10px;
+            }
+
+            footer {
+                width: 85%;
+                font-size: 0.48rem;
+                /* 字体大小减小到原来的80% */
+                padding: 10px;
+                /* 高度减小到原来的80% */
             }
         }
     </style>
@@ -301,6 +343,14 @@
                 <i class="fas fa-book"></i>
                 理论题库
             </a>
+            <a href="#certificate" class="main-button">
+                <i class="fas fa-id-card"></i>
+                参赛证号
+            </a>
+            <a href="#robot-case" class="main-button">
+                <i class="fas fa-robot"></i>
+                <span style="display: inline-block; text-align: center; line-height: 1.2;">ROKAE<br>应用案例</span>
+            </a>
         </div>
 
         <div class="bottom-buttons">
@@ -324,7 +374,7 @@
             // 排除特殊处理的按钮
             if (!button.href.includes('RealBonus.png') &&
                 !button.href.includes('clewm.net') &&
-                !button.href.includes('wps.cn')&&
+                !button.href.includes('wps.cn') &&
                 !button.href.includes('kaoshibao.com')) {
                 button.addEventListener('click', function (e) {
                     e.preventDefault();
