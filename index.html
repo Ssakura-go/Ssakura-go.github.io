@@ -47,10 +47,12 @@
         }
 
         .logo {
-            max-width: 100%;
+            /* 修改为固定宽度，PC端放大 */
+            width: 1200px;
             height: auto;
             margin: 0 auto;
             display: block;
+            max-width: 100%;
         }
 
         h1 {
@@ -306,6 +308,12 @@
                 font-size: 1rem;
             }
 
+            .logo {
+                /* 移动端放大 */
+                width: 600px;
+                max-width: 90%;
+            }
+
             .main-buttons {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
@@ -376,6 +384,12 @@
                 font-size: 1.5rem;
             }
 
+            .logo {
+                /* 移动端放大 */
+                width: 400px;
+                max-width: 95%;
+            }
+
             .main-buttons {
                 gap: 10px;
                 width: 85%;
@@ -437,7 +451,7 @@
         <div class="main-buttons">
             <a href="#intro" class="main-button">
                 <i class="fas fa-info-circle"></i>
-                赛事简介
+                参赛须知
             </a>
             <a href="https://h5.clewm.net/?url=qr61.cn%2Fohkv16%2Fq5ofUuz&hasredirect=1" class="main-button">
                 <i class="fas fa-file-alt"></i>
@@ -462,7 +476,7 @@
             </a>
             <a href="#certificate" class="main-button">
                 <i class="fas fa-id-card"></i>
-                参赛证号
+                比赛图册
             </a>
             <a href="#robot-case" class="main-button">
                 <i class="fas fa-robot"></i>
@@ -471,7 +485,7 @@
         </div>
 
         <div class="bottom-buttons">
-            <a href="#location" class="wide-button">
+            <a href="https://surl.amap.com/y4xm6tA8i0" class="wide-button">
                 <i class="fas fa-map-marker-alt"></i>
                 导航位置
             </a>
@@ -514,6 +528,7 @@
             if (!button.href.includes('Bonus.png') &&
                 !button.href.includes('clewm.net') &&
                 !button.href.includes('wps.cn') &&
+                !button.href.includes('surl.amap.com') &&
                 !button.href.includes('kaoshibao.com') &&
                 button.id !== 'contactButton') {
                 button.addEventListener('click', function (e) {
