@@ -305,6 +305,16 @@
             margin-top: 5px;
         }
 
+        /* 新增：延期提示样式 */
+        .postponed-text {
+            font-size: 0.8rem;
+            color: #e74c3c;
+            font-weight: normal;
+            display: block;
+            margin-top: 5px;
+            line-height: 1.2;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -385,6 +395,11 @@
             .contact-phone {
                 margin-top: 10px;
             }
+
+            /* 移动端延期提示样式 */
+            .postponed-text {
+                font-size: 0.7rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -454,6 +469,11 @@
                 /* 字体大小减小到原来的80% */
                 padding: 10px;
                 /* 高度减小到原来的80% */
+            }
+
+            /* 移动端延期提示样式 */
+            .postponed-text {
+                font-size: 0.6rem;
             }
         }
     </style>
