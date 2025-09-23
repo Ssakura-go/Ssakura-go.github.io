@@ -1,621 +1,300 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025年东莞市工业机器人系统操作员职业技能竞赛</title>
-    <!-- 引入Font Awesome图标库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>专属菜卷的学习网站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
         }
-
+        
         body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            background-image: url('BackGround2.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-blend-mode: overlay;
-            background-color: rgba(255, 255, 255, 0);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
         }
-
+        
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
-
+        
         header {
             text-align: center;
             padding: 40px 0;
-            background: linear-gradient(135deg, rgba(30, 87, 153, 0), rgba(32, 123, 202, 0));
-            color: white;
-            border-radius: 8px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
-        .logo {
-            /* 修改为固定宽度，PC端放大 */
-            width: 1200px;
-            height: auto;
-            margin: 0 auto;
-            display: block;
-            max-width: 100%;
-        }
-
+        
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 0 10px rgba(255, 182, 193, 0.8);
+            background: linear-gradient(45deg, #ffb6c1, #ffd1dc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
+        
         .subtitle {
             font-size: 1.2rem;
-            opacity: 0.9;
+            color: #ffd1dc;
+            margin-bottom: 20px;
         }
-
-        .not-available {
-            font-size: 90%;
-            display: inline-block;
-            vertical-align: baseline;
+        
+        .categories {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 40px;
+            overflow-x: auto;
+            padding-bottom: 10px;
         }
-
-        .main-buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-bottom: 50px;
-            width: 70%;
-            margin-left: auto;
-            margin-right: auto;
+        
+        .category {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            min-width: 280px;
+            flex: 1;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .main-button {
-            background-color: rgba(255, 255, 255, 0.85);
-            border: none;
-            padding: 25px 15px;
+        
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .category h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ffb6c1;
+            border-bottom: 2px solid rgba(255, 182, 193, 0.5);
+            padding-bottom: 10px;
+            cursor: pointer;
+            transition: color 0.3s;
             text-align: center;
+        }
+        
+        .category h2:hover {
+            color: #ff8fa3;
+        }
+        
+        .category ul {
+            list-style: none;
+        }
+        
+        .category li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .category li a {
+            color: #fff;
             text-decoration: none;
             display: flex;
-            flex-direction: row;
             align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: bold;
-            color: #293066;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            min-height: 100px;
+            transition: color 0.3s, transform 0.2s;
+            padding: 5px 0;
             width: 100%;
         }
-
-        .main-button i {
-            font-size: 3rem;
-            margin-right: 20px;
-            color: #1e5799;
+        
+        .category li a:hover {
+            color: #ffb6c1;
+            transform: translateX(5px);
         }
-
-        .bottom-buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            width: 70%;
-            margin: 0 auto;
-            padding-bottom: 30px;
-            margin-top: auto;
-        }
-
-        .wide-button {
-            padding: 16px 12px;
-            /* 高度减小到原来的80% */
-            width: 100%;
-            box-sizing: border-box;
-            font-size: 1.5rem;
-            color: white !important;
+        
+        .category li i {
+            margin-right: 12px;
+            font-size: 1.2rem;
+            width: 24px;
             text-align: center;
-            background-color: rgba(41, 48, 102, 0.8);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            min-height: 64px;
-            /* 高度减小到原来的80% */
+            color: #ffb6c1;
         }
-
-        .wide-button i {
-            font-size: 1.6rem;
-            /* 图标大小减小到原来的80% */
-            margin-right: 20px;
-        }
-
-        .main-button:hover,
-        .wide-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .main-button:hover {
-            color: #1e5799;
-        }
-
-        .wide-button:hover {
-            background-color: rgba(41, 48, 102, 1);
-        }
-
-        .main-button::after,
-        .wide-button::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #1e579900, #207bca00);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .main-button:hover::after {
-            transform: scaleX(1);
-        }
-
-        .wide-button::after {
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
-        }
-
-        .wide-button:hover::after {
-            transform: scaleX(1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 16px;
-            /* 高度减小到原来的80% */
-            color: #666;
-            font-size: 0.72rem;
-            /* 字体大小减小到原来的80% */
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            width: 70%;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
-
-        /* 弹出层样式 */
-        .modal {
-            display: none;
+        
+        .petals-container {
             position: fixed;
-            z-index: 1000;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            overflow: auto;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
         }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 30px;
-            border-radius: 8px;
-            width: 80%;
-            max-width: 500px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            animation: modalopen 0.3s;
-        }
-
-        @keyframes modalopen {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover {
-            color: #333;
-        }
-
-        .contact-item {
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #f5f5f5;
-            border-radius: 6px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .contact-name {
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .contact-phone {
-            font-size: 1.1rem;
-            color: #1e5799;
-            cursor: pointer;
-            position: relative;
-            padding: 5px 10px;
-            border-radius: 4px;
-            transition: background-color 0.2s;
-        }
-
-        .contact-phone:hover {
-            background-color: #e1e1e1;
-        }
-
-        .contact-phone::after {
-            content: '点击复制';
+        
+        .petal {
             position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            opacity: 0;
-            transition: opacity 0.2s;
+            background-color: #ffd1dc;
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.7;
+            animation: fall linear infinite;
         }
-
-        .contact-phone:hover::after {
-            opacity: 1;
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
         }
-
-        .contact-note {
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
-            color: #666;
-            margin-top: 5px;
         }
-
-        /* 新增：延期提示样式 */
-        .postponed-text {
-            font-size: 0.8rem;
-            color: #e74c3c;
-            font-weight: normal;
-            display: block;
-            margin-top: 5px;
-            line-height: 1.2;
+        
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .categories {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .category {
+                flex: 0 0 calc(50% - 20px);
+                margin-bottom: 20px;
+            }
         }
-
+        
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .not-available {
-                font-size: 90%;
-                display: inline-block;
-                vertical-align: baseline;
-            }
-
-            .logo {
-                /* 移动端放大 */
-                width: 720px;
-                max-width: 100%;
-            }
-
-            .main-buttons {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-                margin-bottom: 40px;
-                width: 70%;
-            }
-
-            .main-button {
-                padding: 20px 10px;
-                font-size: 1.2rem;
-                min-height: 80px;
-            }
-
-            .main-button i {
-                font-size: 1.8rem;
-                margin-right: 10px;
-            }
-
-            .wide-button {
-                padding: 12px 8px;
-                /* 高度减小到原来的80% */
-                font-size: 1.2rem;
-                min-height: 56px;
-                /* 高度减小到原来的80% */
-            }
-
-            .wide-button i {
-                font-size: 1.2rem;
-                /* 图标大小减小到原来的80% */
-                margin-right: 10px;
-            }
-
-            .bottom-buttons {
-                width: 70%;
-                gap: 15px;
-            }
-
-            footer {
-                width: 70%;
-                font-size: 0.58rem;
-                /* 字体大小减小到原来的80% */
-                padding: 13px;
-                /* 高度减小到原来的80% */
-            }
-
-            .modal-content {
-                width: 90%;
-                padding: 20px;
-            }
-
-            .contact-item {
-                padding: 10px;
+            .categories {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
             }
-
-            .contact-phone {
-                margin-top: 10px;
+            
+            .category {
+                width: 100%;
+                flex: none;
             }
-
-            /* 移动端延期提示样式 */
-            .postponed-text {
-                font-size: 0.7rem;
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .category h2 {
+                font-size: 1.6rem;
             }
         }
-
+        
         @media (max-width: 480px) {
-            header {
-                padding: 20px 10px;
-            }
-
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
-
-            .logo {
-                /* 移动端放大 */
-                width: 480px;
-                max-width: 100%;
+            
+            .category {
+                padding: 15px;
             }
-
-            .not-available {
-                font-size: 90%;
-                display: inline-block;
-                vertical-align: baseline;
-            }
-
-            .main-buttons {
-                gap: 10px;
-                width: 85%;
-            }
-
-            .main-button {
-                padding: 15px 8px;
-                font-size: 1rem;
-                flex-direction: column;
-                min-height: 90px;
-            }
-
-            .main-button i {
-                font-size: 1.5rem;
-                margin-right: 0;
-                margin-bottom: 8px;
-            }
-
-            .wide-button {
-                padding: 10px 4px;
-                /* 高度减小到原来的80% */
-                font-size: 0.8rem;
-                /* 字体大小减小到原来的80% */
-                flex-direction: column;
-                min-height: 64px;
-                /* 高度减小到原来的80% */
-            }
-
-            .wide-button i {
-                font-size: 0.96rem;
-                /* 图标大小减小到原来的80% */
-                margin-right: 0;
-                margin-bottom: 6px;
-            }
-
-            .bottom-buttons {
-                width: 85%;
-                gap: 10px;
-            }
-
-            footer {
-                width: 85%;
-                font-size: 0.48rem;
-                /* 字体大小减小到原来的80% */
-                padding: 10px;
-                /* 高度减小到原来的80% */
-            }
-
-            /* 移动端延期提示样式 */
-            .postponed-text {
-                font-size: 0.6rem;
+            
+            .category h2 {
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
-
 <body>
+    <div class="petals-container" id="petalsContainer"></div>
+    
     <div class="container">
         <header>
-            <img src="LogoTitle.png" alt="LOGO" class="logo">
+            <h1>专属菜卷的学习网站</h1>
+            <p class="subtitle">探索前沿科技，记录学习历程</p>
         </header>
-
-        <div class="main-buttons">
-            <a href="Competition.png" class="main-button">
-                <i class="fas fa-info-circle"></i>
-                参赛须知
-            </a>
-            <a href="https://h5.clewm.net/?url=qr61.cn%2Fohkv16%2Fq5ofUuz&hasredirect=1" class="main-button">
-                <i class="fas fa-file-alt"></i>
-                技术文件
-            </a>
-            <a href="Bonus.png" class="main-button">
-                <i class="fas fa-trophy"></i>
-                赛事奖励
-            </a>
-            <a href="https://f.wps.cn/g/QimRiq0K/" class="main-button">
-                <i class="fas fa-user-plus"></i>
-                报名平台
-            </a>
-            <a href="DailySchedule.jpg" class="main-button">
-                <i class="fas fa-calendar-alt"></i>
-                赛程安排
-            </a>
-            <a href="https://www.kaoshibao.com/mobile/bank-details?from_uid=21041357&id=25361206" class="main-button">
-                <i class="fas fa-book"></i>
-                理论题库
-            </a>
-            <a href="https://www.xxpie.com/m/album?id=68c9284b0fc57d2cdcc39219&source=SHARE_LINK&r=3650" class="main-button">
-                <i class="fas fa-id-card"></i>
-                比赛图册
-            </a>
-            <a href="https://www.rokae.com/cn/case/show/2087/%E7%94%B5%E5%AD%90%E4%BA%A7%E5%93%81%E7%9B%92%E5%8C%85%E8%A3%85%E7%94%9F%E4%BA%A7.html"
-                class="main-button">
-                <i class="fas fa-robot"></i>
-                <span style="display: inline-block; text-align: center; line-height: 1.2;">ROKAE<br>应用案例</span>
-            </a>
+        
+        <div class="categories">
+            <div class="category">
+                <h2 onclick="window.open('https://github.com/yourusername/ai-projects', '_blank')">人工智能</h2>
+                <ul>
+                    <li><a href="https://example.com/ai-x"><i class="fas fa-robot"></i> X</a></li>
+                    <li><a href="https://www.zhihu.com/"><i class="fab fa-zhihu"></i> 知乎</a></li>
+                    <li><a href="https://example.com/wechat"><i class="fab fa-weixin"></i> 微信公众号</a></li>
+                    <li><a href="https://example.com/knowledge-planet"><i class="fas fa-globe"></i> 知识星球</a></li>
+                </ul>
+            </div>
+            
+            <div class="category">
+                <h2 onclick="window.open('https://github.com/yourusername/embodied-intelligence', '_blank')">具身智能</h2>
+                <ul>
+                    <li><a href="https://example.com/forum"><i class="fas fa-comments"></i> 论坛</a></li>
+                    <li><a href="https://www.ros.org/"><i class="fas fa-cogs"></i> ROS框架</a></li>
+                    <li><a href="https://example.com/video-channel"><i class="fas fa-video"></i> 视频号</a></li>
+                </ul>
+            </div>
+            
+            <div class="category">
+                <h2 onclick="window.open('https://github.com/yourusername/smart-manufacturing', '_blank')">智能制造</h2>
+                <ul>
+                    <li><a href="https://example.com/conference"><i class="fas fa-users"></i> 前沿会议</a></li>
+                    <li><a href="https://example.com/solutions"><i class="fas fa-lightbulb"></i> 解决方案</a></li>
+                    <li><a href="https://example.com/ideas"><i class="fas fa-brain"></i> 创意提炼</a></li>
+                    <li><a href="https://example.com/embedded"><i class="fas fa-microchip"></i> 嵌入式DIY</a></li>
+                    <li><a href="https://www.pmi.org/certifications/project-management-pmp"><i class="fas fa-certificate"></i> PMP</a></li>
+                    <li><a href="https://example.com/interests"><i class="fas fa-heart"></i> 兴趣培养</a></li>
+                </ul>
+            </div>
+            
+            <div class="category">
+                <h2 onclick="window.open('https://github.com/yourusername/other-projects', '_blank')">其他</h2>
+                <ul>
+                    <li><a href="https://example.com/blog"><i class="fas fa-blog"></i> 个人博客</a></li>
+                    <li><a href="https://example.com/notes"><i class="fas fa-sticky-note"></i> 学习笔记</a></li>
+                    <li><a href="https://example.com/resources"><i class="fas fa-book"></i> 资源收集</a></li>
+                    <li><a href="https://example.com/todo"><i class="fas fa-tasks"></i> TODO事项</a></li>
+                </ul>
+            </div>
         </div>
-
-        <div class="bottom-buttons">
-            <a href="https://surl.amap.com/tpgXBYdY2Zq" class="wide-button">
-                <i class="fas fa-map-marker-alt"></i>
-                导航位置
-            </a>
-            <a href="#contact" class="wide-button" id="contactButton">
-                <i class="fas fa-envelope"></i>
-                联系方式
-            </a>
-        </div>
-
+        
         <footer>
-            <p>© 2025 GREZEN·广正杯 职业技能竞赛组委会</p>
+            <p>© 2025 专属菜卷的学习网站 | 持续更新中</p>
         </footer>
     </div>
 
-    <!-- 联系方式弹窗 -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 style="text-align: center; margin-bottom: 20px;">联系方式</h2>
-            <div class="contact-item">
-                <div>
-                    <div class="contact-name">陈先生</div>
-                    <div class="contact-note">微信同号</div>
-                </div>
-                <div class="contact-phone" onclick="copyToClipboard('13802457288')">13802457288</div>
-            </div>
-            <div class="contact-item">
-                <div>
-                    <div class="contact-name">巫先生</div>
-                    <div class="contact-note">微信同号</div>
-                </div>
-                <div class="contact-phone" onclick="copyToClipboard('18620355063')">18620355063</div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        document.querySelectorAll('.main-button, .wide-button').forEach(button => {
-            // 排除特殊处理的按钮
-            if (!button.href.includes('Bonus.png') &&
-                !button.href.includes('clewm.net') &&
-                !button.href.includes('wps.cn') &&
-                !button.href.includes('surl.amap.com') &&
-                !button.href.includes('Competition.png') &&
-                !button.href.includes('kaoshibao.com') &&
-                !button.href.includes('www.rokae.com') &&
-                !button.href.includes('www.xxpie.com') &&
-                !button.href.includes('DailySchedule.jpg') &&
-                button.id !== 'contactButton') {
-                button.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    console.log(`跳转到: ${targetId}`);
-                    alert(`即将跳转到: ${targetId.substring(1)} 页面`);
-                });
-            }
-        });
-
-        // 联系方式弹窗功能
-        const modal = document.getElementById("contactModal");
-        const btn = document.getElementById("contactButton");
-        const span = document.getElementsByClassName("close")[0];
-
-        btn.onclick = function () {
-            modal.style.display = "block";
-        }
-
-        span.onclick = function () {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+        // 创建花瓣效果
+        function createPetals() {
+            const petalsContainer = document.getElementById('petalsContainer');
+            const petalCount = 15; // 花瓣数量
+            
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                
+                // 随机大小 (5px 到 20px)
+                const size = Math.random() * 15 + 5;
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size}px`;
+                
+                // 随机起始位置
+                petal.style.left = `${Math.random() * 100}vw`;
+                petal.style.top = `${-Math.random() * 100}px`;
+                
+                // 随机动画时长 (10s 到 20s)
+                const duration = Math.random() * 10 + 10;
+                petal.style.animationDuration = `${duration}s`;
+                
+                // 随机延迟开始 (0s 到 5s)
+                petal.style.animationDelay = `${Math.random() * 5}s`;
+                
+                petalsContainer.appendChild(petal);
             }
         }
-
-        // 复制电话号码功能
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(function () {
-                alert("已复制电话号码: " + text);
-            }, function () {
-                // 兼容旧浏览器
-                const textarea = document.createElement("textarea");
-                textarea.value = text;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand("copy");
-                document.body.removeChild(textarea);
-                alert("已复制电话号码: " + text);
-            });
-        }
+        
+        // 页面加载完成后创建花瓣
+        window.addEventListener('DOMContentLoaded', createPetals);
     </script>
 </body>
-
 </html>
